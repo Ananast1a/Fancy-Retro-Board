@@ -1,0 +1,20 @@
+.app-title, li a {
+    text-transform: uppercase;
+    color: rgb(75, 75, 75);
+    &:hover {
+        color: rgb(0, 151, 144);
+    }
+}
+
+.header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(240, 239, 239);
+    z-index: 1;
+    &-content {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

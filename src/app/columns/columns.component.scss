@@ -1,0 +1,200 @@
+.btn-wrap {
+    position: relative;
+    margin-top: 75px;
+    text-align: center;
+    .new-board-name {
+      padding: 0 10px;
+      height: 45px;
+      width: 450px;
+      border: 1px solid rgb(155, 155, 155);
+      border-radius: 8px;
+      &:focus {
+        border: 2px solid white;
+      }
+    }
+    .add-new-board {
+      margin-left: 10px;
+      padding: 0 15px;
+      height: 45px;
+      background-color: #6B4EFF;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+      &:hover {
+        background-color: #4f38be;;
+      }
+    }
+  }
+  
+  .column-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  
+    :nth-child(3n+1) {
+      background-color: #FAEBD7;
+      border: 5px solid #FAEBD7;
+      &::-webkit-scrollbar {
+          &-thumb {
+              background: linear-gradient(180deg, #eafb00, #a76401);
+            }
+      }
+  
+    }
+  
+    :nth-child(3n+2) {
+      background-color: #E0BFE6;
+      border: 5px solid #E0BFE6;
+      &::-webkit-scrollbar {
+          &-thumb {
+              background: linear-gradient(180deg, #e7d2e7, #860a3a);
+            }
+      }
+    }
+  
+    :nth-child(3n+3) {
+      background-color: #BCDEFA;
+      border: 5px solid #BCDEFA;
+      &::-webkit-scrollbar {
+          &-thumb {
+              background: linear-gradient(180deg, #00c6fb, #0046b8);
+            }
+      }
+    }
+  
+    .column {
+      margin: 5px;
+      padding: 15px 12px;
+      min-width: 30%;
+      min-height: 120px;
+      max-height: 500px;
+      border-radius: 12px;
+      overflow-y: auto;
+      flex: 1;
+  
+      p {
+        background-color: transparent;
+      }
+  
+      &-header {
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        h4 {
+          background-color: transparent;
+          margin: 0 5px;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0.15px;
+        }
+        .fa-trash-alt {
+          width: 20px;
+          height: 20px;
+          background-color: transparent;
+          border-radius: 5px;
+          text-align: center;
+          padding: 2px 0;
+          &:hover {
+            background-color: rgba(white, 0.3);
+            color: rgb(97, 50, 97);
+          }
+        }
+      }
+  
+      &::-webkit-scrollbar {
+          background-color: transparent;
+          width: 4px;
+          &-track {
+            background-color: #f9f9fd;
+            border-radius: 2px;
+          }
+          &-thumb {
+            border-radius: 2px;
+          }
+      }
+    }
+  
+    .add-board-item {
+      background-color: transparent;
+      width: 100px;
+      height: 30px;
+      margin: 7px 0;
+      border: none;
+      letter-spacing: 0.5px;
+      .plusi {
+        background-color: transparent;
+        font-size: 25px;
+      }
+      p, .fa-plus {
+        background-color: transparent;
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+      &:hover {
+        background-color: rgba(white, 0.3);
+        border-radius: 4px;
+      }
+    }
+    .add-form {
+      position: relative;
+      margin-top: 5px;
+      padding: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      background: #FFFFFF;
+      text-align: left;
+      textarea {
+        resize: none;
+        &:focus {
+          outline: none;
+        }
+      }
+      .i-wrap {
+        position: absolute;
+        right: 3px;
+        bottom: 3px;
+        background-color: transparent;
+        display: flex;
+        justify-content: flex-end;
+        text-align: center;
+      }
+      .fa-check, .fa-times {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        margin: 1px 2px;
+        border-radius: 5px;
+      }
+      .fa-check {
+        padding: 2px 0 0 0;
+        border: 1px solid rgba(darkgreen, 0.3);
+        color: green;
+        &:hover {
+          color: darkgreen;
+        }
+      }
+      .fa-times {
+        padding: 1px 0;
+        font-size: 16px;
+        border: 1px solid rgba(maroon, 0.3);
+        color: brown;
+        &:hover {
+          color: rgb(88, 23, 23);
+        }
+      }
+    }
+    .add-task-input {
+      font-size: 1em;
+      padding: 3px;
+      border: none;
+      background-color:transparent;
+      width: 100%;
+    }
+  }

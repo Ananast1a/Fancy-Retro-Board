@@ -1,0 +1,142 @@
+.column {
+  p {
+    background-color: transparent;
+  }
+
+  &-header {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h4 {
+      background-color: transparent;
+      margin: 0 5px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: 0.15px;
+    }
+
+    .fa-trash-alt {
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-radius: 5px;
+      text-align: center;
+      padding: 2px 0;
+
+      &:hover {
+        background-color: rgba(white, 0.3);
+        color: rgb(97, 50, 97);
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+
+    &-track {
+      background-color: #f9f9fd;
+      border-radius: 2px;
+    }
+
+    &-thumb {
+      border-radius: 2px;
+    }
+  }
+}
+
+.add-board-item {
+  background-color: transparent;
+  width: 100px;
+  height: 30px;
+  margin: 7px 0;
+  border: none;
+  letter-spacing: 0.5px;
+
+  .plusi {
+    background-color: transparent;
+    font-size: 25px;
+  }
+
+  p,
+  .fa-plus {
+    background-color: transparent;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: rgba(white, 0.3);
+    border-radius: 4px;
+  }
+}
+
+.add-form {
+  position: relative;
+  margin-top: 5px;
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #FFFFFF;
+  text-align: left;
+
+  textarea {
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .i-wrap {
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+  }
+
+  .fa-check,
+  .fa-times {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    margin: 1px 2px;
+    border-radius: 5px;
+  }
+
+  .fa-check {
+    padding: 2px 0 0 0;
+    border: 1px solid rgba(darkgreen, 0.3);
+    color: green;
+
+    &:hover {
+      color: darkgreen;
+    }
+  }
+
+  .fa-times {
+    padding: 1px 0;
+    font-size: 16px;
+    border: 1px solid rgba(maroon, 0.3);
+    color: brown;
+
+    &:hover {
+      color: rgb(88, 23, 23);
+    }
+  }
+}
+
+.add-task-input {
+  font-size: 1em;
+  padding: 3px;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+}

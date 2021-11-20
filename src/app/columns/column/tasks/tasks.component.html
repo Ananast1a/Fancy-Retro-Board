@@ -1,0 +1,21 @@
+<div class="task">
+{{task.content}}
+<div class="task-likes-coms">
+    <i class="far fa-heart"></i> {{task.likes}} 
+    <i class="far fa-comment-alt"
+    (click)="toggleCommentsVisibility()"></i> {{task.comments.length}}
+</div>
+<div class="task-comments"> 
+     <div *ngIf="task.commentsVisibility">
+        <app-comments *ngFor="let currentComment of task.comments"
+        [comment]="currentComment">
+        </app-comments>
+        <div class="add-comment-wrapper">
+            <textarea rows="2" cols="45" class="add-task-input" placeholder="Your comment..." id="comment-content"
+            #commentTextInput></textarea>
+            <i class="fas fa-check"(click)="toAddComment()" ></i>
+        </div>
+     </div>
+</div>
+</div>
+

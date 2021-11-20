@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="btn-wrap">
+    <input class="new-board-name" type="text" placeholder="Type new board name..." maxlength="50" #boardNameInput>
+    <button class="add-new-board" (click)="createColumn()">Create board</button>
+  </div>
+  <div class="column-wrapper">
+    <app-column class="column" *ngFor="let singleColumn of columns" [column]="singleColumn">
+    </app-column>
+  </div>
+</div>
+
