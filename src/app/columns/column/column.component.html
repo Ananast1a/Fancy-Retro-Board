@@ -3,7 +3,15 @@
       <h4>{{column.title}}</h4> <i class="far fa-trash-alt"
       (click)="toRemoveColumn(this.column)"></i>
     </div>
-    <app-tasks *ngFor="let singleTask of column.tasks" [task]="singleTask"></app-tasks>
+    <div
+    class="column-task-list"
+    cdkDropList
+    [cdkDropListData]="this.column.tasks"
+    (cdkDropListDropped)="drop($event)"
+    >
+      <app-tasks *ngFor="let singleTask of column.tasks" [task]="singleTask" 
+      cdkDrag></app-tasks>
+    </div>
     <ng-template #adderButton>
       <button class="add-board-item" (click)="toToggleAddingMode(this.column)">
         + Add item
@@ -11,6 +19,7 @@
     </ng-template>
     <div *ngIf="column.addingItemModeOn; else adderButton" class="add-form">
       <textarea rows="2" cols="45" class="add-task-input" placeholder="Type new item to add..." id="item-content"
+      maxlength="120"
         #taskTextInput></textarea>
       <div class="i-wrap">
         <i class="fas fa-check" (click)="toAddTask(this.column)"></i>

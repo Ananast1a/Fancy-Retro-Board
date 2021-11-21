@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import { ColumnsService } from './columns.service';
 import { Column } from './column.model';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Task } from './tasks/task.model';
 
 @Component({
   selector: 'app-column',
@@ -17,9 +19,8 @@ export class ColumnComponent implements OnInit {
   }
 
   toAddTask(column: Column) {
-    console.log(column, this.taskTextInput.nativeElement.value);
-    this.columnsService.addTask(column, this.taskTextInput.nativeElement.value);
-    this.taskTextInput.nativeElement.value = '';
+      this.columnsService.addTask(column, this.taskTextInput.nativeElement.value);
+      this.taskTextInput.nativeElement.value = '';
   }
 
   toToggleAddingMode(column: Column) {
@@ -29,6 +30,19 @@ export class ColumnComponent implements OnInit {
 
   toRemoveColumn(column: Column) {
     this.columnsService.removeColumn(column);
+  }
+
+  drop(event: CdkDragDrop<Task[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 
 }

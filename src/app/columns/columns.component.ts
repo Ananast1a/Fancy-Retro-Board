@@ -24,7 +24,11 @@ export class ColumnsComponent implements OnInit {
     )
   }
   createColumn() {
-    this.columnsService.addColumn(this.boardNameInput.nativeElement.value);
+    if (this.boardNameInput.nativeElement.value.length > 0) {
+      this.columnsService.addColumn(this.boardNameInput.nativeElement.value);
+    } else {
+      alert('Oops! Board name is empty. Type board name to create new board.')
+    }
   }
 
   

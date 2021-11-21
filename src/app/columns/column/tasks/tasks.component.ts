@@ -22,7 +22,11 @@ export class TasksComponent implements OnInit {
   }
 
   toAddComment() {
-    this.task.comments.push(new Comment('Unknown', this.commentTextInput.nativeElement.value));
-    this.commentTextInput.nativeElement.value = '';
+    if (this.commentTextInput.nativeElement.value > 0) {
+      this.task.comments.push(new Comment('Unknown', this.commentTextInput.nativeElement.value));
+      this.commentTextInput.nativeElement.value = '';
+    } else {
+      alert('Oops! Comment is empty. Type comment to create new board.')
+    }
   }
 }
