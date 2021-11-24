@@ -17,13 +17,24 @@
         + Add item
       </button>
     </ng-template>
-    <div *ngIf="column.addingItemModeOn; else adderButton" class="add-form">
-      <textarea rows="2" cols="45" class="add-task-input" placeholder="Type new item to add..." id="item-content"
+    <form *ngIf="column.addingItemModeOn; else adderButton" class="add-form"  
+    (ngSubmit)="toAddTask(this.column)"
+    #taskForm="ngForm"
+    >
+      <textarea rows="2" cols="45" 
+      class="add-task-input" 
+      placeholder="Type new item to add..." 
+      id="item-content"
       maxlength="120"
-        #taskTextInput></textarea>
+      #taskTextInput
+      ngModel
+      required
+      name="task_text"
+      ></textarea>
       <div class="i-wrap">
-        <i class="fas fa-check" (click)="toAddTask(this.column)"></i>
+        <button type="submit" class="fa-check-btn" [disabled]="!taskForm.valid"><i class="fas fa-check"></i></button>
         <i class="fas fa-times" (click)="toToggleAddingMode(this.column)"></i>
       </div>
-    </div>
+      <!-- <p *ngIf="!taskForm.valid && taskForm.touched" class="enter_task"></p> -->
+    </form>
   </div>

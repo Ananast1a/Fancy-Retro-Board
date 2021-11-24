@@ -10,12 +10,19 @@
         <app-comments *ngFor="let currentComment of task.comments"
         [comment]="currentComment">
         </app-comments>
-        <div class="add-comment-wrapper">
-            <textarea rows="2" cols="45" class="add-task-input" placeholder="Your comment..." id="comment-content"
+        <form class="add-comment-wrapper"
+        (ngSubmit)="toAddComment()"
+        #commentForm="ngForm">
+            <textarea rows="2" cols="45" class="add-task-input" 
+            placeholder="Your comment..." id="comment-content"
             maxlength="120"
-            #commentTextInput></textarea>
-            <i class="fas fa-check"(click)="toAddComment()" ></i>
-        </div>
+            #commentTextInput
+            ngModel
+            required
+            name="comment_text"></textarea>
+            <button type="submit" [disabled]="!commentForm.valid"
+            class="fa-check-btn"><i class="fas fa-check"></i></button>
+        </form>
      </div>
 </div>
 </div>

@@ -34,7 +34,24 @@
           outline: none;
         }
       }
-      .fa-check {
+      // .fa-check {
+      //   position: absolute;
+      //   bottom: 3px;
+      //   right: 3px;
+      //   text-align: center;
+      //   width: 20px;
+      //   height: 20px;
+      //   background-color: transparent;
+      //   margin: 1px 2px;
+      //   border-radius: 5px;
+      //   padding: 2px 0 0 0;
+      //   border: 1px solid rgba(darkgreen, 0.3);
+      //   color: green;
+      //   &:hover {
+      //     color: darkgreen;
+      //   }
+      // }
+      .fa-check-btn {
         position: absolute;
         bottom: 3px;
         right: 3px;
@@ -44,7 +61,7 @@
         background-color: transparent;
         margin: 1px 2px;
         border-radius: 5px;
-        padding: 2px 0 0 0;
+        padding: 0;
         border: 1px solid rgba(darkgreen, 0.3);
         color: green;
         &:hover {

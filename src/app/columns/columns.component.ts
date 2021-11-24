@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Column } from './column/column.model';
 import { ColumnsService } from './column/columns.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-columns',
@@ -8,7 +9,7 @@ import { ColumnsService } from './column/columns.service';
   styleUrls: ['./columns.component.scss']
 })
 export class ColumnsComponent implements OnInit {
-  @ViewChild('boardNameInput', {static: false}) boardNameInput!: ElementRef;
+  @ViewChild('boardForm', {static: false}) boardForm!: NgForm;
   columns!: Column[];
 
   constructor(private columnsService: ColumnsService) {
@@ -24,12 +25,8 @@ export class ColumnsComponent implements OnInit {
     )
   }
   createColumn() {
-    if (this.boardNameInput.nativeElement.value.length > 0) {
-      this.columnsService.addColumn(this.boardNameInput.nativeElement.value);
-    } else {
-      alert('Oops! Board name is empty. Type board name to create new board.')
-    }
+      this.columnsService.addColumn(this.boardForm.value.board_name);
+      this.boardForm.reset();
   }
-
   
 }

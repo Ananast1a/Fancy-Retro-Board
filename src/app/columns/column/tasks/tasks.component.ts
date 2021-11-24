@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Comment } from './comments/comment.model';
 import { Task } from './task.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-tasks',
@@ -9,12 +10,11 @@ import { Task } from './task.model';
 })
 export class TasksComponent implements OnInit {
   @Input() task!: Task;
-  @ViewChild('commentTextInput', {static: false}) commentTextInput!: ElementRef;
+  @ViewChild('commentForm', {static: false}) commentForm!: NgForm;
 
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   toggleCommentsVisibility() {
@@ -22,11 +22,7 @@ export class TasksComponent implements OnInit {
   }
 
   toAddComment() {
-    if (this.commentTextInput.nativeElement.value > 0) {
-      this.task.comments.push(new Comment('Unknown', this.commentTextInput.nativeElement.value));
-      this.commentTextInput.nativeElement.value = '';
-    } else {
-      alert('Oops! Comment is empty. Type comment to create new board.')
-    }
+      this.task.comments.push(new Comment('Unknown', this.commentForm.value.comment_text));
+      this.commentForm.reset();
   }
 }

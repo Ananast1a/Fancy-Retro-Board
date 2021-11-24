@@ -26,6 +26,9 @@
       &:hover {
         background-color: #4f38be;;
       }
+      &:disabled {
+        background-color: #8a74f8;
+      }
     }
   }
   
@@ -71,7 +74,7 @@
       padding: 15px 12px;
       min-width: 30%;
       min-height: 120px;
-      max-height: 500px;
+      max-height: 400px;
       border-radius: 12px;
       overflow-y: auto;
       flex: 1;

@@ -3,6 +3,7 @@ import { ColumnsService } from './columns.service';
 import { Column } from './column.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Task } from './tasks/task.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-column',
@@ -11,7 +12,7 @@ import { Task } from './tasks/task.model';
 })
 export class ColumnComponent implements OnInit {
   @Input() column!: Column;
-  @ViewChild('taskTextInput', {static: false}) taskTextInput!: ElementRef;
+  @ViewChild('taskForm', {static: false}) taskForm!: NgForm;
 
   constructor(private columnsService: ColumnsService) { }
 
@@ -19,12 +20,11 @@ export class ColumnComponent implements OnInit {
   }
 
   toAddTask(column: Column) {
-      this.columnsService.addTask(column, this.taskTextInput.nativeElement.value);
-      this.taskTextInput.nativeElement.value = '';
+    this.columnsService.addTask(column, this.taskForm.value.task_text);
+    this.taskForm.reset();
   }
 
   toToggleAddingMode(column: Column) {
-    console.log('column event fired')
     this.columnsService.toggleAddingMode(column);
   }
 

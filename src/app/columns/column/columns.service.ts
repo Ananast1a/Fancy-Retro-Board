@@ -50,7 +50,7 @@ export class ColumnsService {
                 this.newColumnName,
                 [],
                 this.columnId++,
-                false
+                true
             )
         )
         this.columnsChanged.emit(this.columns.slice());

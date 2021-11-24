@@ -121,7 +121,7 @@
     text-align: center;
   }
 
-  .fa-check,
+  .fa-check-btn,
   .fa-times {
     width: 20px;
     height: 20px;
@@ -130,11 +130,13 @@
     border-radius: 5px;
   }
 
-  .fa-check {
-    padding: 2px 0 0 0;
+  .fa-check-btn {
+    padding: 0;
     border: 1px solid rgba(darkgreen, 0.3);
     color: green;
+  }
 
+  .fa-check {
     &:hover {
       color: darkgreen;
     }
@@ -150,6 +152,13 @@
       color: rgb(88, 23, 23);
     }
   }
+  // .enter_task {
+  //   margin-top: 5px;
+  //   position: absolute;
+  //   margin-left: 2px;
+  //   font-size: 12px;
+  //   color: grey;
+  // }
 }
 
 .add-task-input {
