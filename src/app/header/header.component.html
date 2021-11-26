@@ -7,12 +7,15 @@
       <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a routerLink="/">Home</a></li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="isAuthenticated">
           <a routerLink="/boards">Boards</a></li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="!isAuthenticated">
           <a routerLink="/register">Register</a></li>
-        <li routerLinkActive="active">
+        <li routerLinkActive="active" *ngIf="!isAuthenticated">
           <a routerLink="/login">Log in</a></li>
+        <li *ngIf="isAuthenticated">
+          <a (click)="onLogout()">Log out</a>
+        </li>
       </ul>
     </div>
   </div>

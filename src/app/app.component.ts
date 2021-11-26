@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ColumnsService } from './columns/column/columns.service';
+import { ColumnsService } from './columns/columns.service';
 import { Column } from './columns/column/column.model';
 
 @Component({

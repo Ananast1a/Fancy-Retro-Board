@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
-import { ColumnsService } from './columns.service';
+import { ColumnsService } from '../columns.service';
 import { Column } from './column.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Task } from './tasks/task.model';
@@ -12,11 +12,30 @@ import { NgForm } from '@angular/forms';
 })
 export class ColumnComponent implements OnInit {
   @Input() column!: Column;
-  @ViewChild('taskForm', {static: false}) taskForm!: NgForm;
+  @ViewChild('taskForm', { static: false }) taskForm!: NgForm;
 
   constructor(private columnsService: ColumnsService) { }
 
   ngOnInit(): void {
+    this.column = this.getColumnTasks();
+  }
+
+  getColumnTasks() {
+    if (this.column.tasks) {
+      const tasks = Object.entries(this.column.tasks).map(([key, value]) => {
+        return {
+          ...value,
+          id: key
+        }
+      });
+      const result = {
+        ...this.column,
+        tasks,
+      }
+      return result;
+    } else {
+      return this.column;
+    }
   }
 
   toAddTask(column: Column) {
@@ -44,5 +63,4 @@ export class ColumnComponent implements OnInit {
       );
     }
   }
-
 }

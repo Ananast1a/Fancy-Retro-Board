@@ -1,0 +1,22 @@
+<div class="login-holder">
+  <div class="container">
+    <div class="alert alert-danger" *ngIf="error">
+      <p>{{error}}</p>
+    </div>
+    <div *ngIf="isLoading" class="spinner">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin(loginForm)">
+      <div>
+        <label for="email">Email</label> <br>
+        <input type="email" id="email" ngModel name="email" required email>
+      </div>
+      <div>
+        <label for="password">Password</label> <br>
+        <input type="password" id="password" ngModel name="password" required minlength="6">
+      </div>
+      <br>
+      <button class="btn" [disabled]="!loginForm.valid">Log in</button>
+    </form>
+  </div>
+</div>
