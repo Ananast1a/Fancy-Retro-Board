@@ -4,6 +4,7 @@ import { Column } from './column.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Task } from './tasks/task.model';
 import { NgForm } from '@angular/forms';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 
 @Component({
   selector: 'app-column',
@@ -14,33 +15,16 @@ export class ColumnComponent implements OnInit {
   @Input() column!: Column;
   @ViewChild('taskForm', { static: false }) taskForm!: NgForm;
 
-  constructor(private columnsService: ColumnsService) { }
+  constructor(private columnsService: ColumnsService,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
-    this.column = this.getColumnTasks();
-  }
-
-  getColumnTasks() {
-    if (this.column.tasks) {
-      const tasks = Object.entries(this.column.tasks).map(([key, value]) => {
-        return {
-          ...value,
-          id: key
-        }
-      });
-      const result = {
-        ...this.column,
-        tasks,
-      }
-      return result;
-    } else {
-      return this.column;
-    }
   }
 
   toAddTask(column: Column) {
     this.columnsService.addTask(column, this.taskForm.value.task_text);
     this.taskForm.reset();
+    this.dataStorageService.storeColumns();
   }
 
   toToggleAddingMode(column: Column) {
@@ -49,6 +33,7 @@ export class ColumnComponent implements OnInit {
 
   toRemoveColumn(column: Column) {
     this.columnsService.removeColumn(column);
+    this.dataStorageService.storeColumns();
   }
 
   drop(event: CdkDragDrop<Task[]>) {
@@ -62,5 +47,7 @@ export class ColumnComponent implements OnInit {
         event.currentIndex,
       );
     }
+    this.dataStorageService.storeColumns();
   }
+
 }

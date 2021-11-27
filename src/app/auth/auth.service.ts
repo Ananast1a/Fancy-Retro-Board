@@ -60,6 +60,7 @@ export class AuthService {
         )
         .pipe(catchError(this.handleError),
         tap(resData => {
+            // console.log('this is user email here' + resData.email);
             this.handleAuth(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
         }));
     }

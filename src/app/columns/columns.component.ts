@@ -3,6 +3,7 @@ import { Column } from './column/column.model';
 import { ColumnsService } from './columns.service';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-columns',
@@ -10,41 +11,38 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./columns.component.scss']
 })
 export class ColumnsComponent implements OnInit, OnDestroy {
-  @ViewChild('boardForm', {static: false}) boardForm!: NgForm;
-  columns!: Column[];
-  removeColumnSuccessfulSub!: Subscription;
 
-  constructor(private columnsService: ColumnsService) {
+  @ViewChild('boardForm', { static: false }) boardForm!: NgForm;
+
+  columns: Column[];
+  updateColumnsSubscription: Subscription;
+
+  constructor(private columnsService: ColumnsService,
+    private dataStorageService: DataStorageService) {
   }
 
   ngOnInit() {
-    this.columnsService.fetchColumns()
-    .subscribe(columns => {
-      this.columns = columns;
-    })
-
-    this.removeColumnSuccessfulSub = this.columnsService.updateColumnsSuccessful$
-    .subscribe(
-      () => this.columnsService.fetchColumns()
-      .subscribe(columns => {
+    this.dataStorageService.fetchColumns().subscribe(
+      columns => {
         this.columns = columns;
-      })
-    )
-    
+      }
+    );
+    this.updateColumnsSubscription = this.columnsService.columnsChanged
+      .subscribe(
+        (columns: Column[]) => {
+          this.columns = columns;
+        }
+      );
   }
 
   ngOnDestroy() {
-    this.removeColumnSuccessfulSub.unsubscribe();
+    this.updateColumnsSubscription.unsubscribe();
   }
 
   createColumn() {
-      this.columnsService.addColumn(this.boardForm.value.board_name)
-      .subscribe(
-        () => this.columnsService.fetchColumns()
-        .subscribe(columns => {
-          this.columns = columns;
-        })
-      );
-      this.boardForm.reset();
-  } 
+    this.columnsService.addColumn(new Column(this.boardForm.value.board_name, [], false));
+    this.dataStorageService.storeColumns();
+    this.boardForm.reset();
+  }
+
 }

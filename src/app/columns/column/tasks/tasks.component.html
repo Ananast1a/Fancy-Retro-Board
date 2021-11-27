@@ -1,10 +1,13 @@
 <div class="task">
 {{task.content}}
 <div class="task-likes-coms">
-    <i class="far fa-heart"></i> {{task.likes}} 
+    <i class="fa-heart" 
+    [ngClass]="{'far' : !isLiked, 'fas' : isLiked}"
+    (click)="toAddLike()"></i> 
+    {{task.likes.length}} 
     <i class="far fa-comment-alt"
     (click)="toggleCommentsVisibility()"></i> 
-    <!-- {{task.comments.length}} -->
+    {{task.comments.length}}
 </div>
 <div class="task-comments"> 
      <div *ngIf="task.commentsVisibility">

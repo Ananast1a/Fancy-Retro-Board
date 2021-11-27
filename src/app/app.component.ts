@@ -7,7 +7,7 @@ import { AuthService } from './auth/auth.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [ColumnsService]
+  providers: []
 })
 export class AppComponent implements OnInit {
   title = 'fancy-retro-board';
