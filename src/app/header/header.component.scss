@@ -2,8 +2,14 @@
     text-transform: uppercase;
     color: rgb(75, 75, 75);
     &:hover {
-        color: rgb(0, 151, 144);
+        color: #6B4EFF;
+        background-color: transparent;
     }
+}
+
+.app_link {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .header {
@@ -11,10 +17,22 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgb(240, 239, 239);
+    background-color: rgb(255, 255, 255);
     z-index: 1;
     &-content {
         margin-left: 20px;
         margin-right: 20px;
     }
+    .logo_title {
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 24px;
+    }
+    .logo {
+        height: 35px;
+        margin-right: 5px;
+    }
+
 }

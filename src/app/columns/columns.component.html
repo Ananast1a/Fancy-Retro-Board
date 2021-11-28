@@ -1,13 +1,16 @@
 <div class="container">
-  <form class="btn-wrap" 
-  #boardForm="ngForm"
-  (ngSubmit)="createColumn()">
-    <input class="new-board-name" type="text" placeholder="Type new board name..." maxlength="50" #boardNameInput
-    ngModel
-    required
-    name="board_name">
-    <button type="submit" class="add-new-board" [disabled]="!boardForm.valid">Create board</button>
-  </form>
+  <div class="header_btns_wrap">
+    <form class="btn-wrap" 
+    #boardForm="ngForm"
+    (ngSubmit)="createColumn()">
+      <input class="new-board-name" type="text" placeholder="Type new board name..." maxlength="50" #boardNameInput
+      ngModel
+      required
+      name="board_name">
+      <button type="submit" class="add-new-board" [disabled]="!boardForm.valid">Create board</button>
+    </form>
+    <button *ngIf="columns" class="export_btn" (click)="exportColumnsAsExcel()">Export all boards to Excel</button>
+  </div>
   <div class="column-wrapper"
   cdkDropListGroup>
     <app-column class="column" *ngFor="let singleColumn of columns" [column]="singleColumn">

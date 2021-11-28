@@ -4,6 +4,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ColumnComponent } from './columns/column/column.component';
@@ -20,6 +21,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { AuthInterceptorSevice } from './auth/auth-interceptor.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { ColumnsService } from './columns/columns.service';
+import { ExcelService } from "./shared/excel.service";
+
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { ColumnsService } from './columns/columns.service';
   providers: [AuthService, 
     DataStorageService,
     ColumnsService,
+    ExcelService,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorSevice, multi: true}],
   bootstrap: [AppComponent]
 })

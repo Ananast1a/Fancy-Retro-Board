@@ -1,6 +1,11 @@
+.header_btns_wrap {
+  margin-top: 75px;
+  display: flex;
+  justify-content: center;
+}
+
 .btn-wrap {
     position: relative;
-    margin-top: 75px;
     text-align: center;
     .new-board-name {
       padding: 0 10px;
@@ -29,6 +34,23 @@
       &:disabled {
         background-color: #8a74f8;
       }
+    }
+  }
+
+  .export_btn {
+    text-align: center;
+    margin-left: 10px;
+    padding: 0 15px;
+    height: 45px;
+    background-color: #6cc78a;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    &:hover {
+      background-color: #529769;
     }
   }
   

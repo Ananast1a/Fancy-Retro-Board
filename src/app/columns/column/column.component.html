@@ -1,6 +1,7 @@
   <div class="column">
     <div class="column-header">
       <h4>{{column.title}}</h4> <i class="far fa-trash-alt"
+      *ngIf="column.creator === user.id"
       (click)="toRemoveColumn(this.column)"></i>
     </div>
     <div

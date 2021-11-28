@@ -22,6 +22,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLiked = this.task.likes.includes(this.user.id) ? true : false;
+    this.task.commentsVisibility = false;
   }
 
   toggleCommentsVisibility() {

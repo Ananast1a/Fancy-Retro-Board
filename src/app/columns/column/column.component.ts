@@ -5,6 +5,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { Task } from './tasks/task.model';
 import { NgForm } from '@angular/forms';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-column',
@@ -14,11 +15,14 @@ import { DataStorageService } from 'src/app/shared/data-storage.service';
 export class ColumnComponent implements OnInit {
   @Input() column!: Column;
   @ViewChild('taskForm', { static: false }) taskForm!: NgForm;
+  user = this.authService.user.value;
 
   constructor(private columnsService: ColumnsService,
-    private dataStorageService: DataStorageService) { }
+    private dataStorageService: DataStorageService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.column.addingItemModeOn = false;
   }
 
   toAddTask(column: Column) {
