@@ -15,6 +15,7 @@ export class TasksComponent implements OnInit {
   @Input() task!: Task;
   @ViewChild('commentForm', { static: false }) commentForm!: NgForm;
   user = this.authService.user.value;
+  userName = this.dataStorageService.userName.value;
   isLiked: boolean;
 
   constructor(private dataStorageService: DataStorageService,
@@ -30,8 +31,8 @@ export class TasksComponent implements OnInit {
   }
 
   toAddComment() {
-    const user = this.authService.user.value;
-    this.task.comments.push(new Comment(user.email, this.commentForm.value.comment_text));
+    const userName = this.dataStorageService.userName.value;
+    this.task.comments.push(new Comment(userName, this.commentForm.value.comment_text, this.user.id));
     this.commentForm.reset();
     this.dataStorageService.storeColumns();
   }

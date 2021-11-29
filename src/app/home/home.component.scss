@@ -13,6 +13,25 @@
         h3 {
             font-size: 36px;
         }
+        a {
+            color: white;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .get_started_btn {
+        margin-top: 20px;
+        width: 143px;
+        height: 48px;
+        border-radius: 24px;
+        background-color: #6B4EFF;
+        border: none;
+        font-size: 16px;
+        letter-spacing: 0.25px;
+        &:hover {
+            background-color: #583fd3;
+        }
+        }
     }
 }
 .home_advantages {

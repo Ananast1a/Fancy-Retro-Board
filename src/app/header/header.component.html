@@ -1,9 +1,9 @@
-<nav class="navbar header">
+<nav class="header">
   <div class="container-fluid header-content">
     <div class="navbar-header">
       <div class="logo_title">
-        <div><img class="logo" src="../../assets/logo1.png" alt="logo"></div>
-        <div>Fancy<b>Retro</b></div>  
+       <a routerLink="/"><img class="logo" src="../../assets/logo1.png" alt="logo">
+        <div class="retro_title">Fancy<span class="retro">Retro</span></div></a>
       </div>
     </div>
     <div class="collapse navbar-collapse">
@@ -17,9 +17,18 @@
         <li routerLinkActive="active" *ngIf="!isAuthenticated">
           <a class="app_link" routerLink="/login">Log in</a></li>
         <li *ngIf="isAuthenticated">
-          <a class="app_link" (click)="onLogout()">Log out</a>
+            <p class="app_link user_name">{{userName}}</p> 
+        </li>
+        <li *ngIf="isAuthenticated">
+          <a class="app_link" (click)="onLogout()"><p><span class="logouting material-icons material-icons-outlined">
+            logout
+            </span></p></a>
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</nav> 
+
+
+
+

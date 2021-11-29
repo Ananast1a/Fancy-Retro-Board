@@ -1,0 +1,36 @@
+footer {
+    position: absolute;
+    width: 100%;
+    background-color: #bdd0fb;
+}
+
+.footer_wrapper {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    padding: 10px;
+    background-color: white;
+    border-top: 2px solid #bdd0fb;
+
+    .author_info {
+        font-size: 14px;
+        p {
+            margin-bottom: 5px;
+        }
+    }
+
+    a {
+        padding: 0 10px;
+        color: black;
+        &:hover {
+            color: #6B4EFF;
+        }
+    }
+    .author_links {
+        font-size: 20px;
+    }
+    
+}
+

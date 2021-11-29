@@ -1,22 +1,27 @@
 <div class="login-holder">
   <div class="container">
-    <div class="alert alert-danger" *ngIf="error">
+    <div class="alert alert-danger error" *ngIf="error">
       <p>{{error}}</p>
     </div>
     <div *ngIf="isLoading" class="spinner">
       <app-loading-spinner></app-loading-spinner>
     </div>
-    <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin(loginForm)">
-      <div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin(loginForm)"
+    class="login_form">
+    <div class="login_title">Log in</div>
+      <div class="login_email">
         <label for="email">Email</label> <br>
-        <input type="email" id="email" ngModel name="email" required email>
+        <input type="email" id="email" ngModel name="email" required email
+        placeholder="Email">
       </div>
-      <div>
+      <div class="login_pass">
         <label for="password">Password</label> <br>
-        <input type="password" id="password" ngModel name="password" required minlength="6">
+        <input type="password" id="password" ngModel name="password" required minlength="6"
+        placeholder="Type your password">
       </div>
       <br>
-      <button class="btn" [disabled]="!loginForm.valid">Log in</button>
+      <button class="login_btn" [disabled]="!loginForm.valid">Log in</button>
+      <div class="redir"> Don't have an account? <a routerLink="/register">Register</a></div>
     </form>
   </div>
 </div>

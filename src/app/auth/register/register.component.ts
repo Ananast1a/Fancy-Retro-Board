@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,7 +13,9 @@ export class RegisterComponent implements OnInit {
   isLoading = false;
   error!: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private dataStorageService: DataStorageService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -22,16 +26,27 @@ export class RegisterComponent implements OnInit {
     }
     const email = form.value.email;
     const password = form.value.password;
+    const username = form.value.username;
     this.isLoading = true;
     this.authService.signUp(email, password)
     .subscribe(resData => {
       console.log(resData);
       this.isLoading = false;
+      this.dataStorageService.storeUsername(email, username)
+      .subscribe(response => {
+        console.log(response);
+        this.dataStorageService.fetchUsername(email)
+        .subscribe(response => {
+          console.log(response);
+        }
+        )
+      })
+      this.router.navigate(['/boards']);
+
     }, errorMessage => {
       this.error = errorMessage;
       this.isLoading = false;
-    }
-    );
+    });
     form.reset();
   }
 

@@ -22,6 +22,7 @@ import { AuthInterceptorSevice } from './auth/auth-interceptor.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { ColumnsService } from './columns/columns.service';
 import { ExcelService } from "./shared/excel.service";
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ExcelService } from "./shared/excel.service";
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

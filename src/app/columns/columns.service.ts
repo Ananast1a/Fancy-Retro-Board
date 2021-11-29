@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { Column } from "./column/column.model"
 import { Task } from "./column/tasks/task.model";
 import { Subject } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class ColumnsService {
     columnsChanged = new Subject<Column[]>();
     private columns: Column[] = [];
+    user = this.authService.user.value;
 
-    constructor() { }
+    constructor(private authService: AuthService
+    ) {}
 
     toggleAddingMode(column: Column) {
         column.addingItemModeOn = !column.addingItemModeOn;

@@ -1,15 +1,30 @@
 .app-title, li a {
-    text-transform: uppercase;
     color: rgb(75, 75, 75);
-    &:hover {
+    line-height: 26px;
+    &:hover, &:focus {
         color: #6B4EFF;
         background-color: transparent;
     }
 }
 
+p {
+    margin: 0;
+    line-height: 26px;
+    height: 26px;
+}
+
+.logouting {
+    margin-top: 1px;
+    cursor: pointer;
+}
+
 .app_link {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: 55px;
+}
+
+.user_name {
+    font-weight: 500;
+    padding: 15px;
 }
 
 .header {
@@ -23,14 +38,26 @@
         margin-left: 20px;
         margin-right: 20px;
     }
-    .logo_title {
+    .logo_title a {
         display: flex;
         align-items: center;
         padding-top: 10px;
         padding-bottom: 10px;
         font-size: 24px;
+        font-weight: 200;
+        .retro {
+            font-weight: 500;
+        }
+        &:hover, &:active, &:visited, &:focus {
+            text-decoration: none;    
+        }
+    }
+    .retro_title {
+        display: block;
+        color: black;
     }
     .logo {
+        display: block;
         height: 35px;
         margin-right: 5px;
     }

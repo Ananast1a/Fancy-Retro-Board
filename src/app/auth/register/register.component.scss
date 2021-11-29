@@ -1,9 +1,98 @@
 .register_holder {
-    margin-top: 70px;
-    text-align: center;
+  height: 100vh;
+  margin-top: 60px;
+  background-color: #F3F5FE;
+  margin-bottom: 75px;
+
+  .error {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .reg_form {
+    margin: 0 auto;
+    margin-top: 74px;
+    padding: 40px;
+    width: 480px;
+    height: 564px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    box-sizing: border-box;
+    border-radius: 40px;
+
+    input {
+      margin-top: 4px;
+      padding-left: 12px;
+      width: 100%;
+      height: 48px;
+      border: 1px solid rgba(0, 0, 0, 0.24);
+      border-radius: 8px;
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .reg_title {
+      text-align: center;
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: 0.15px;
+    }
+
+    .reg_username {
+      margin-top: 32px;
+    }
+
+    .reg_email,
+    .reg_pass {
+      margin-top: 24px;
+
+      p {
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 20px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .reg_btn {
+      width: 400px;
+      height: 48px;
+      background-color: #6B4EFF;
+      border-radius: 24px;
+      color: white;
+      font-size: 16px;
+      letter-spacing: 0.25px;
+      border: none;
+
+      &:hover {
+        background-color: #503ac0;
+      }
+    }
+
+    .redir {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 0.25px;
+
+      a {
+        color: #6B4EFF;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .spinner {
-    margin-top: 20px;
-    text-align: center;
+  margin-top: 40px;
+  text-align: center;
 }
