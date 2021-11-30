@@ -1,4 +1,5 @@
 .task {
+  position: relative;
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 10px;
@@ -8,6 +9,16 @@
   line-height: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.16);
   border-radius: 8px;
+
+  .menu_options {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    .icon_more {
+      transform: scale(0.8);
+    }
+  }
 
   &-comments {
     position: relative;

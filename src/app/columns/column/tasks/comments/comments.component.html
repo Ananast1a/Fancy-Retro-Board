@@ -1,1 +1,6 @@
-<p> <span class="comment-author">{{comment.author}}: </span><span class="comment-content">{{comment.content}}</span></p>
+<div class="single_comment"> <span class="comment-author">{{comment.author}}: </span>
+    <span class="comment-content">{{comment.content}}</span>
+    <i 
+    *ngIf="comment.creator === user.id"
+    class="far fa-trash-alt"
+    (click)="onCommentDelete()"></i></div>

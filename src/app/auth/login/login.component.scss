@@ -1,8 +1,42 @@
 .login-holder {
   height: 100vh;
-  margin-top: 60px;
   background-color: #F3F5FE;
-  margin-bottom: 75px;
+  // margin-bottom: 75px;
+  // margin-top: 60px;
+
+  .logo_title a {
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 24px;
+    font-weight: 200;
+    justify-content: center;
+
+    .retro {
+      font-weight: 500;
+    }
+
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  .retro_title {
+    display: block;
+    color: black;
+  }
+
+  .logo {
+    display: block;
+    height: 35px;
+    margin-right: 5px;
+  }
 
   .error {
     margin-top: 30px;
@@ -11,18 +45,17 @@
 
   .login_form {
     margin: 0 auto;
-    margin-top: 74px;
+    margin-top: 40px;
     padding: 40px;
-    padding-bottom: 60px;
     width: 480px;
-    height: 440px;
+    height: 460px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.87);
     box-sizing: border-box;
     border-radius: 40px;
 
     input {
-      margin-top: 4px;
+      margin-top: 3px;
       padding-left: 12px;
       width: 100%;
       height: 48px;
@@ -33,7 +66,6 @@
     label {
       font-weight: 500;
       font-size: 12px;
-      line-height: 16px;
       color: rgba(0, 0, 0, 0.87);
     }
 
@@ -53,7 +85,7 @@
     }
 
     .login_btn {
-      margin-top: 20px;
+      margin-top: 32px;
       width: 400px;
       height: 48px;
       background-color: #6B4EFF;
@@ -69,10 +101,9 @@
     }
 
     .redir {
-      margin-top: 24px;
+      margin-top: 32px;
       text-align: center;
       font-size: 16px;
-      line-height: 24px;
       letter-spacing: 0.25px;
 
       a {

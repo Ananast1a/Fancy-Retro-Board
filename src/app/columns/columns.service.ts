@@ -38,7 +38,7 @@ export class ColumnsService {
     }
 
     addTask(column: Column, task: string) {
-        column.tasks.push(new Task(task, [], [], false))
+        column.tasks.push(new Task(task, [], [], false, this.user.id))
         this.columnsChanged.next(this.columns.slice());
     }
 }

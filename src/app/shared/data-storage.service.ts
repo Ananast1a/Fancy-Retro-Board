@@ -21,7 +21,6 @@ export class DataStorageService {
         columns
       )
       .subscribe(response => {
-        console.log(response);
         this.fetchColumns();
       });
   }
@@ -33,18 +32,22 @@ export class DataStorageService {
       )
       .pipe(
         map((columns: Column[]) => {
-          return columns.map(column => {
-            return {
-              ...column,
-              tasks: column.tasks ? column.tasks.map(task => {
-                return {
-                  ...task,
-                  comments: task.comments ? task.comments : [],
-                  likes: task.likes ? task.likes : []
-                }
-              }) : []
-            };
-          });
+          if (columns) {
+            return columns.map(column => {
+              return {
+                ...column,
+                tasks: column.tasks ? column.tasks.map(task => {
+                  return {
+                    ...task,
+                    comments: task.comments ? task.comments : [],
+                    likes: task.likes ? task.likes : []
+                  }
+                }) : []
+              };
+            });
+          } else {
+            return [];
+          }
         }),
         tap(columns => {
           this.columnsService.setColumns(columns);
@@ -82,7 +85,6 @@ export class DataStorageService {
               return item.username;
             }
           })[0].username;
-          console.log('on fetch' + result);
           this.userName.next(result);
         })
       )

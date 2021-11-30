@@ -24,7 +24,8 @@ p {
 
 .user_name {
     font-weight: 500;
-    padding: 15px;
+    padding: 15px 0;
+    margin-left: 35px;
 }
 
 .header {
@@ -34,9 +35,9 @@ p {
     width: 100%;
     background-color: rgb(255, 255, 255);
     z-index: 1;
+    padding: 0 60px;
     &-content {
-        margin-left: 20px;
-        margin-right: 20px;
+        padding: 0;
     }
     .logo_title a {
         display: flex;
@@ -58,7 +59,7 @@ p {
     }
     .logo {
         display: block;
-        height: 35px;
+        height: 30px;
         margin-right: 5px;
     }
 

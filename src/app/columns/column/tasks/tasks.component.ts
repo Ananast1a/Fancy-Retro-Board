@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Comment } from './comments/comment.model';
 import { Task } from './task.model';
 import { NgForm } from '@angular/forms';
@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class TasksComponent implements OnInit {
   @Input() task!: Task;
+  @Output () taskDeleted = new EventEmitter<Task>();
   @ViewChild('commentForm', { static: false }) commentForm!: NgForm;
   user = this.authService.user.value;
   userName = this.dataStorageService.userName.value;
@@ -46,6 +47,19 @@ export class TasksComponent implements OnInit {
       this.task.likes.push(this.user.id);
       this.isLiked = !this.isLiked;
     }
+    this.dataStorageService.storeColumns();
+  }
+
+  onTaskDelete() {
+    const deletionConf = confirm("Are you sure you want to delete this item?");
+    if (deletionConf && this.task.creator === this.user.id) {
+      this.taskDeleted.emit(this.task);
+    }
+  }
+
+  deleteComment(comment: Comment) {
+    const index = this.task.comments.indexOf(comment);
+    this.task.comments.splice(index, 1);
     this.dataStorageService.storeColumns();
   }
 }

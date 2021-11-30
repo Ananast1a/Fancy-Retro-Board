@@ -1,5 +1,9 @@
 <div class="register_holder">
   <div class="container">
+    <div class="logo_title">
+      <a routerLink="/"><img class="logo" src="../../assets/logo1.png" alt="logo">
+       <div class="retro_title">Fancy<span class="retro">Retro</span></div></a>
+     </div>
     <div class="alert alert-danger error" *ngIf="error">
       <p>{{error}}</p>
     </div>
@@ -24,7 +28,6 @@
         placeholder="Type your password">
         <p>Should contain at least 6 characters</p>
       </div>
-      <br>
       <button class="reg_btn" [disabled]="!registerForm.valid"> Create Account </button>
       <div class="redir"> Already have an account? <a routerLink="/login">Login</a></div>
     </form>

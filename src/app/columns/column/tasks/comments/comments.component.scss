@@ -1,9 +1,15 @@
-p {
+.single_comment {
+    position: relative;
     margin: 1px 0px;
     padding: 2px 4px;
     background-color: rgba(255, 255, 255, 0.3);
     font-size: 0.9em;
     .comment-author {
         font-weight: 500;
+    }
+    .far {
+        position: absolute;
+        right: 8px;
+        top: 8px;
     }
 }

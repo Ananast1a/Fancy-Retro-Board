@@ -16,7 +16,7 @@ export class ColumnsComponent implements OnInit, OnDestroy {
 
   @ViewChild('boardForm', { static: false }) boardForm!: NgForm;
 
-  columns: Column[];
+  columns: Column[] = [];
   updateColumnsSubscription: Subscription;
   columnTableVisibility = false;
   user = this.authService.user.value;

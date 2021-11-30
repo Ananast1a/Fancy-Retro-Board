@@ -1,4 +1,19 @@
 <div class="task">
+    <button 
+    *ngIf="task.creator === user.id"
+    mat-icon-button [matMenuTriggerFor]="menu" 
+    aria-label="Example icon-button with a menu"
+    class="menu_options">
+        <mat-icon class="icon_more">more_vert</mat-icon>  
+    </button>
+      <mat-menu #menu="matMenu">
+        <!-- <button mat-menu-item>
+          <span>Edit</span>
+        </button> -->
+        <button mat-menu-item (click)="onTaskDelete()">
+          <span>Delete</span>
+        </button>
+      </mat-menu>
 {{task.content}}
 <div class="task-likes-coms">
     <i class="fa-heart" 
@@ -11,7 +26,9 @@
 </div>
 <div class="task-comments"> 
      <div *ngIf="task.commentsVisibility">
-        <app-comments *ngFor="let currentComment of task.comments"
+        <app-comments 
+        (commentDeleted)="deleteComment($event)"
+        *ngFor="let currentComment of task.comments"
         [comment]="currentComment">
         </app-comments>
         <form class="add-comment-wrapper"

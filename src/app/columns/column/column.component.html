@@ -11,7 +11,9 @@
     (cdkDropListDropped)="drop($event)"
     >
       <app-tasks *ngFor="let singleTask of column.tasks" [task]="singleTask" 
-      cdkDrag></app-tasks>
+      cdkDrag
+      (taskDeleted)="deleteTask($event)"
+      ></app-tasks>
     </div>
     <ng-template #adderButton>
       <button class="add-board-item" (click)="toToggleAddingMode(this.column)">

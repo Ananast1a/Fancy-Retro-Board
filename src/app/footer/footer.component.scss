@@ -10,14 +10,16 @@ footer {
     text-align: center;
     position: fixed;
     bottom: 0px;
-    padding: 10px;
-    background-color: white;
-    border-top: 2px solid #bdd0fb;
+    padding: 10px 60px;
+    background-color: #F3F5FE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .author_info {
         font-size: 14px;
         p {
-            margin-bottom: 5px;
+            margin-bottom: 0px;
         }
     }
 

@@ -31,13 +31,23 @@ export class ColumnComponent implements OnInit {
     this.dataStorageService.storeColumns();
   }
 
+  deleteTask(task: Task) {
+    const index = this.column.tasks.indexOf(task);
+    this.column.tasks.splice(index, 1);
+    console.log(this.column);
+    this.dataStorageService.storeColumns();
+  }
+
   toToggleAddingMode(column: Column) {
     this.columnsService.toggleAddingMode(column);
   }
 
   toRemoveColumn(column: Column) {
-    this.columnsService.removeColumn(column);
-    this.dataStorageService.storeColumns();
+    const deletionConf = confirm("Are you sure you want to delete this column?");
+    if (deletionConf) {
+      this.columnsService.removeColumn(column);
+      this.dataStorageService.storeColumns();
+    }
   }
 
   drop(event: CdkDragDrop<Task[]>) {

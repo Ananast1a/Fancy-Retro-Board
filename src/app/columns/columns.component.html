@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="columns_wrapper">
 <div class="container">
   <div class="header_btns_wrap">
@@ -10,7 +11,7 @@
       name="board_name">
       <button type="submit" class="add-new-board" [disabled]="!boardForm.valid">Create board</button>
     </form>
-    <button *ngIf="columns" class="export_btn" (click)="exportColumnsAsExcel()">Export all boards to Excel</button>
+    <button *ngIf="columns.length > 0" class="export_btn" (click)="exportColumnsAsExcel()"><img src="../../assets/excel.png" alt="excel">  Export</button>
   </div>
   <div class="column-wrapper"
   cdkDropListGroup>
@@ -19,4 +20,5 @@
   </div>
 </div>
 </div>
+<app-footer></app-footer>
 

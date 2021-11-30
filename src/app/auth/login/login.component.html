@@ -1,5 +1,9 @@
 <div class="login-holder">
   <div class="container">
+    <div class="logo_title">
+      <a routerLink="/"><img class="logo" src="../../assets/logo1.png" alt="logo">
+       <div class="retro_title">Fancy<span class="retro">Retro</span></div></a>
+     </div>
     <div class="alert alert-danger error" *ngIf="error">
       <p>{{error}}</p>
     </div>
@@ -19,7 +23,6 @@
         <input type="password" id="password" ngModel name="password" required minlength="6"
         placeholder="Type your password">
       </div>
-      <br>
       <button class="login_btn" [disabled]="!loginForm.valid">Log in</button>
       <div class="redir"> Don't have an account? <a routerLink="/register">Register</a></div>
     </form>
