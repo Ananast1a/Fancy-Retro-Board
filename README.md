@@ -1,5 +1,18 @@
 # FancyRetroBoard
 
+An application for team sprint retrospective, the following features are implemented:
+
+User can register on the website, and only while logged in user can view data and access functionality.
+User can:
+- view all boards, tasks and comments created by the user and other users
+- create boards, delete and edit title of own boards
+- add tasks to all boards, delete own tasks; drag and drop tasks between columns and up/down within one column
+- add comments to all boards, delete own comments
+- put/take away likes on tasks
+- export to Excel the following data: table of all boards with tasks
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.12.
 
 ## Development server
