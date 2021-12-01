@@ -30,15 +30,11 @@ export class RegisterComponent implements OnInit {
     this.isLoading = true;
     this.authService.signUp(email, password)
     .subscribe(resData => {
-      console.log(resData);
       this.isLoading = false;
-      console.log('reg: user registered')
       this.dataStorageService.storeUsername(email, username)
       .subscribe(() => {
-        console.log('reg: username stored')
         this.dataStorageService.fetchUsername(email)
         .subscribe(() => {
-          console.log('reg: username fetched')
         }
         )
       })
