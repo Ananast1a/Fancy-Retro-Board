@@ -20,11 +20,10 @@
           </div>
         </form>
       </div>
-      <div class="column-header_icons">
+      <div class="column-header_icons" *ngIf="column.creator === user.id">
         <i class="fas fa-pencil-alt"
         (click)="openEdit()"></i>
         <i class="far fa-trash-alt"
-        *ngIf="column.creator === user.id"
         (click)="toRemoveColumn(this.column)"></i>
       </div>
     </div>

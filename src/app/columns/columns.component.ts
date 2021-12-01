@@ -62,11 +62,9 @@ export class ColumnsComponent implements OnInit, OnDestroy {
         }).join(', ')
       }
     }
-
     this.columns.forEach(column => {
       columnsForExport.push(getFormattedCol(column));
     })
-
     this.excelService.exportAsExcelFile(columnsForExport, 'columns_list'); 
   }
 

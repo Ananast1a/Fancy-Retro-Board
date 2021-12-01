@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     });
     this.userNameSub = this.dataStorageService.userName.subscribe(userName => {
-      this.userName = userName;
+        this.userName = userName;
     })
   }
 

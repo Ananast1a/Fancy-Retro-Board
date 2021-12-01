@@ -20,6 +20,15 @@ footer {
         font-size: 14px;
         p {
             margin-bottom: 0px;
+            a {
+                padding: 0;
+                color: #333;
+                text-decoration: none;
+                &:hover {
+                    color: #333;
+                    text-decoration: none;
+                }
+            }
         }
     }
 

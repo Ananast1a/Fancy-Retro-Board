@@ -56,7 +56,6 @@ export class DataStorageService {
   }
 
   storeUsername(email: string, username: string) {
-    console.log('storeUsername', email, username)
     const user = {
       email: email,
       username: username
