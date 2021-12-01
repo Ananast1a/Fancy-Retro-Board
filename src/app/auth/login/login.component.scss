@@ -1,8 +1,6 @@
 .login-holder {
-  height: 100vh;
+  height: 100%;
   background-color: #F3F5FE;
-  // margin-bottom: 75px;
-  // margin-top: 60px;
 
   .logo_title a {
     margin: 0 auto;
@@ -44,8 +42,7 @@
   }
 
   .login_form {
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: 40px auto;
     padding: 40px;
     width: 480px;
     height: 460px;
