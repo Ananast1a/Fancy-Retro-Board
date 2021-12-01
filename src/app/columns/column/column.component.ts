@@ -15,7 +15,9 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class ColumnComponent implements OnInit {
   @Input() column!: Column;
   @ViewChild('taskForm', { static: false }) taskForm!: NgForm;
+  @ViewChild('editTitleForm', { static: false }) editTitleForm!: NgForm;
   user = this.authService.user.value;
+  editingModeOn = false;
 
   constructor(private columnsService: ColumnsService,
     private dataStorageService: DataStorageService,
@@ -34,7 +36,6 @@ export class ColumnComponent implements OnInit {
   deleteTask(task: Task) {
     const index = this.column.tasks.indexOf(task);
     this.column.tasks.splice(index, 1);
-    console.log(this.column);
     this.dataStorageService.storeColumns();
   }
 
@@ -61,6 +62,21 @@ export class ColumnComponent implements OnInit {
         event.currentIndex,
       );
     }
+    this.dataStorageService.storeColumns();
+  }
+
+  openEdit() {
+    this.editingModeOn = true;
+  }
+
+  closeEdit() {
+    this.editingModeOn = false;
+  }
+
+  editTitle() {
+    this.column.title = this.editTitleForm.value.edited_title;
+    this.editingModeOn = false;
+    this.editTitleForm.reset();
     this.dataStorageService.storeColumns();
   }
 

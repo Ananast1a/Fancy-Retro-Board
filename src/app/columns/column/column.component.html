@@ -1,8 +1,32 @@
   <div class="column">
     <div class="column-header">
-      <h4>{{column.title}}</h4> <i class="far fa-trash-alt"
-      *ngIf="column.creator === user.id"
-      (click)="toRemoveColumn(this.column)"></i>
+      <div class="column-header_title">
+        <h4 *ngIf="!editingModeOn">{{column.title}}</h4> 
+        <form
+        class="edit_form"
+        *ngIf="editingModeOn" 
+        (ngSubmit)="editTitle()"
+        #editTitleForm="ngForm">
+          <input 
+          class="edit_input"
+          type="text"
+          name="edited_title"
+          required
+          [ngModel]="column.title"
+          >
+          <div class="i-wrap">
+          <button type="submit" class="fa-check-btn" [disabled]="!editTitleForm.valid"><i class="fas fa-check"></i></button>
+          <i class="fas fa-times" (click)="closeEdit()"></i>
+          </div>
+        </form>
+      </div>
+      <div class="column-header_icons">
+        <i class="fas fa-pencil-alt"
+        (click)="openEdit()"></i>
+        <i class="far fa-trash-alt"
+        *ngIf="column.creator === user.id"
+        (click)="toRemoveColumn(this.column)"></i>
+      </div>
     </div>
     <div
     class="column-task-list"
@@ -38,6 +62,5 @@
         <button type="submit" class="fa-check-btn" [disabled]="!taskForm.valid"><i class="fas fa-check"></i></button>
         <i class="fas fa-times" (click)="toToggleAddingMode(this.column)"></i>
       </div>
-      <!-- <p *ngIf="!taskForm.valid && taskForm.touched" class="enter_task"></p> -->
     </form>
   </div>
