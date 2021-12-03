@@ -231,3 +231,49 @@
       width: 100%;
     }
   }
+
+@media screen and (max-width: 991px)  {
+  .btn-wrap {
+    text-align: left;
+    .add-new-board {
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+    .new-board-name { 
+      width: 60%;
+    }
+  }
+
+  .header_btns_wrap {
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 769px)  {
+  .columns_wrapper {
+    margin-top: 130px;
+  }
+
+  .btn-wrap {
+    text-align: left;
+    .add-new-board {
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+    .new-board-name { 
+      width: 60%;
+    }
+  }
+
+  .column-wrapper {
+    margin-top: 10px;
+    padding: 0 5px;
+    .column {
+      min-width: 100%;
+    }
+  }
+
+.export_btn {
+  right: 10px;
+}
+}

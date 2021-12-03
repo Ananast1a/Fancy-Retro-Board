@@ -45,3 +45,15 @@ footer {
     
 }
 
+@media screen and (max-width: 420px)  {
+    footer {
+        width: 420px;
+        .footer_wrapper {
+            padding: 5px 10px;
+            a {
+                padding: 0 3px;
+            }
+        }    
+
+    }
+}

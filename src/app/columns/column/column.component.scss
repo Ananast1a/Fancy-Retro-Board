@@ -183,3 +183,9 @@
   background-color: transparent;
   width: 100%;
 }
+
+@media screen and (max-width: 420px)  {
+  .add-board-item {
+    width: 100%;
+  }
+}

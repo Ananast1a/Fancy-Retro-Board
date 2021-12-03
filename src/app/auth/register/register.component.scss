@@ -1,6 +1,11 @@
-.register_holder {
-  height: 100%;
+.container {
   background-color: #F3F5FE;
+}
+
+.register_holder {
+  height: 100vh;
+  background-color: #F3F5FE;
+
 
   .logo_title a {
     margin: 0 auto;
@@ -125,4 +130,47 @@
 .spinner {
   margin-top: 40px;
   text-align: center;
+}
+
+@media screen and (max-width: 590px) {
+  .register-holder, .container {
+    width: 100%;
+
+    .logo_title a {
+      margin-top: 20px;
+    }
+
+
+    .reg_form {
+      margin: 20px auto;
+      padding: 20px;
+      width: 340px;
+      height: 510px;
+
+      input {
+        height: 40px;
+      }
+
+      .reg_email {
+        margin-top: 26px;
+      }
+
+      .reg_btn {
+        width: 100%;
+      }
+
+      .redir {
+        margin-top: 20px;
+      }
+
+      .reg_username {
+        margin-top: 24px;
+      }
+
+      .reg_email,
+      .reg_pass {
+        margin-top: 16px;
+      }
+    }
+  }
 }
